@@ -76,7 +76,7 @@ function dp_follow_destinations (&$route, $destination) {
   }
   $dpgraph = $route['dpgraph'];
   //dplog(9, "dpgraph: " . print_r($dpgraph, true));
-  dplog(9, "destination='$destination' route[extension]: " . print_r($route['extension'], true));
+  dplog(9, "destination='$destination' route['extension']: " . print_r($route['extension'], true));
 
   # This only happens on the first call.  Every recursive call includes
   # a destination to look at.  For the first one, we get the destination from
@@ -156,7 +156,7 @@ function dp_follow_destinations (&$route, $destination) {
     $tcother = $matches[2];
 
     $tc = $route['timeconditions'][$tcnum];
-    $node->attribute('label', "TC: ".htmlspecialchars($tc[displayname],ENT_QUOTES));
+    $node->attribute('label', "TC: ".htmlspecialchars($tc['displayname'],ENT_QUOTES));
     $node->attribute('URL', htmlentities('/admin/config.php?display=timeconditions&view=form&itemid='.$tcnum));
     $node->attribute('target', '_blank');
     $node->attribute('shape', 'invhouse');
@@ -287,7 +287,8 @@ function dp_follow_destinations (&$route, $destination) {
     $rgother = $matches[2];
 
     $rg = $route['ringgroups'][$rgnum];
-    $node->attribute('label', "Ring Group: $rgnum: " .htmlspecialchars($rg[description], ENT_QUOTES));
+    $node->attribute('label', "Ring Group: $rgnum: " .htmlspecialchars($rg['
+    '], ENT_QUOTES));
     $node->attribute('URL', htmlentities('/admin/config.php?display=ringgroups&view=form&extdisplay='.$rgnum));
     $node->attribute('target', '_blank');
     $node->attribute('fillcolor', $pastels[4]);
@@ -341,7 +342,7 @@ function dp_follow_destinations (&$route, $destination) {
     $rec='\\nRecord(no): disabled';
   }
 
-  $node->attribute('label', "Announcement: " .htmlspecialchars($an[description], ENT_QUOTES).$rec);
+  $node->attribute('label', "Announcement: " .htmlspecialchars($an['description'], ENT_QUOTES).$rec);
   $node->attribute('URL', htmlentities('/admin/config.php?display=announcement&view=form&extdisplay='.$annum));
   $node->attribute('target', '_blank');
   $node->attribute('shape', 'note');
@@ -413,7 +414,7 @@ function dp_follow_destinations (&$route, $destination) {
   $miscdestother = $matches[2];
 
   $miscdest = $route['miscdest'][$miscdestnum];
-  $node->attribute('label', "Misc Dest: " .htmlspecialchars($miscdest[description],ENT_QUOTES)." ($miscdest[destdial])");
+  $node->attribute('label', "Misc Dest: " .htmlspecialchars($miscdest['description'],ENT_QUOTES)." ($miscdest[destdial])");
   $node->attribute('URL', htmlentities('/admin/config.php?display=miscdests&view=form&extdisplay='.$miscdestnum));
   $node->attribute('target', '_blank');
   $node->attribute('shape', 'rpromoter');
