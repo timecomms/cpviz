@@ -543,7 +543,7 @@ function dp_follow_destinations (&$route, $destination) {
           $route['parent_node'] = $node;
           dp_follow_destinations($route, $d['dest']);
       }elseif ($d['dmode']=="fc_description"){
-           $node->attribute('label', "Call Flow: ".htmlspecialchars($d[dest],ENT_QUOTES) .$code);
+           $node->attribute('label', "Call Flow: ".htmlspecialchars($d['dest'],ENT_QUOTES) .$code);
       }
     }
     $daynight = $route['daynight'][$daynightnum];
